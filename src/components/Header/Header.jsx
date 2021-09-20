@@ -1,9 +1,10 @@
 import { Wrapper } from './Header.styles';
+import Container from '../Container';
 
-export default function Header() {
+export default function Header({ children }) {
   return (
-    <Wrapper>
-      <h1>sfsdfsdfsdf</h1>
-    </Wrapper>
+    <Container>
+      <Wrapper>{children}</Wrapper>
+    </Container>
   );
 }

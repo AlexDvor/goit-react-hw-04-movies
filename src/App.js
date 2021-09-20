@@ -1,10 +1,9 @@
-import Header from './components/Header';
-import Container from './components/Container';
-
+// import Container from './components/Container';
+import Header from './components/Header/Header.jsx';
 export default function App() {
   return (
-    <Container>
-      <Header></Header>
-    </Container>
+    <Header>
+      <h1>2</h1>
+    </Header>
   );
 }
