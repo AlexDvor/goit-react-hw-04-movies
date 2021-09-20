@@ -1,11 +1,10 @@
 import s from './Header.module.css';
+import Navigation from './Navigation/Navigation';
 
 export default function Header() {
   return (
-    <>
-      <nav className={s.nav}>
-        <h1>1</h1>
-      </nav>
-    </>
+    <header className={s.nav}>
+      <Navigation></Navigation>
+    </header>
   );
 }
