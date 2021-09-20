@@ -1,7 +1,10 @@
+import Header from './components/Header';
+import Container from './components/Container';
+
 export default function App() {
   return (
-    <>
-      <h1>Test</h1>
-    </>
+    <Container>
+      <Header></Header>
+    </Container>
   );
 }
