@@ -1,11 +1,7 @@
-import Header from './components/Header/Header.jsx';
-import Container from './components/Container/Container.jsx';
-import { Route } from 'react-router-dom';
+import "./App.css";
 
-export default function App() {
-  return (
-    <Container>
-      <Header></Header>
-    </Container>
-  );
+function App() {
+  return <h1>fff</h1>;
 }
+
+export default App;
