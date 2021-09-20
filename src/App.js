@@ -1,7 +1,13 @@
 import "./App.css";
+import { NavLink } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 function App() {
-  return <h1>fff</h1>;
+  return (
+    <>
+      <Header></Header>
+    </>
+  );
 }
 
 export default App;
