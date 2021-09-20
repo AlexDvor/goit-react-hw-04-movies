@@ -1,10 +1,11 @@
-import { Wrapper } from './Header.styles';
-import Container from '../Container';
+import s from './Header.module.css';
 
-export default function Header({ children }) {
+export default function Header() {
   return (
-    <Container>
-      <Wrapper>{children}</Wrapper>
-    </Container>
+    <>
+      <nav className={s.nav}>
+        <h1>1</h1>
+      </nav>
+    </>
   );
 }
