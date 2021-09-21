@@ -1,9 +1,10 @@
-import Navigation from "../Navigation/Navigation";
+import Navigation from '../Navigation/Navigation';
+import s from './Header.module.css';
 
 export default function Header() {
   return (
     <>
-      <header>
+      <header className={s.header}>
         <Navigation></Navigation>
       </header>
     </>

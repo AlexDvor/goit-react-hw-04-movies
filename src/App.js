@@ -1,9 +1,12 @@
-import Header from "./components/Header/Header";
+import Header from './components/Header/Header';
+import Container from './components/Container.jsx';
 
 function App() {
   return (
     <>
-      <Header></Header>
+      <Container>
+        <Header></Header>
+      </Container>
     </>
   );
 }
