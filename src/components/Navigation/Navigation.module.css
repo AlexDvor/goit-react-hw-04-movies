@@ -1,0 +1,15 @@
+.link {
+  font-size: 20px;
+  list-style: none;
+  color: black;
+  margin-right: 15px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.activeLink {
+  color: tomato;
+}
