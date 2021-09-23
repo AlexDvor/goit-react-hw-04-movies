@@ -21,4 +21,15 @@ export async function fetchMovieBySearch(queryValue) {
   });
 }
 
+export async function fetchMovieByID(id) {
+  return await fetch(`${URL}/movie/${id}?api_key=${API_KEY}&language=en-US`).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`400 Not Found`));
+  });
+}
+
 // `${URL}/search/movie?api_key=${API_KEY}&query=${queryValue}&language=en-US&page=1`,
+
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US

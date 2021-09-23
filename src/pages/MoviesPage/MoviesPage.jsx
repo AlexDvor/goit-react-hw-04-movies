@@ -2,7 +2,7 @@ import s from './Movies.module.css';
 import { useState } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
 
-export default function Movies() {
+export default function MoviesPage() {
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState([]);
 

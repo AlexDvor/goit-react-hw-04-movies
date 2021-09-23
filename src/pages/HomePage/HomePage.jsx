@@ -1,4 +1,4 @@
-import { fetchMovie } from '../utils/fetchMovie';
+import { fetchMovie } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ export default function HomePage() {
         {movie &&
           movie.map(item => (
             <li key={item.id}>
-              <Link to={`/movie/${item.id}`}>{item.title}</Link>
+              <Link to={`/movies/${item.id}`}>{item.title}</Link>
             </li>
           ))}
       </ul>
