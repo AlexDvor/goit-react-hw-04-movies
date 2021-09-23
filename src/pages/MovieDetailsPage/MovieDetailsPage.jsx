@@ -7,17 +7,21 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
 
   useEffect(() => {
-    fetchMovieByID(Number(movieId)).then(res => setMovieData(res));
+    fetchMovieByID(Number(movieId)).then(setMovieData);
   }, [movieId]);
 
   const { title, poster_path } = movieData;
-  const URL = 'https://image.tmdb.org/t/p/w200';
-  //   console.log(poster_path);
+  const URL = 'https://image.tmdb.org/t/p/w500';
+
   return (
     <>
       <p>Detail Page {movieId}</p>
       <h2>{title}</h2>
-      <img src={`${URL}/${poster_path}`} alt={title} width="200px" />
+      {poster_path ? (
+        <img src={`${URL}/${poster_path}`} alt={title} width="200px" />
+      ) : (
+        <p>Not Found Image</p>
+      )}
     </>
   );
 }

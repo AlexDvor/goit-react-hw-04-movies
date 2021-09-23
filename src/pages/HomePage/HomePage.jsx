@@ -10,7 +10,6 @@ export default function HomePage() {
   useEffect(() => {
     fetchMovie().then(res => setMovie(res.results));
   }, []);
-
   return (
     <>
       <h2>Trending Today</h2>
