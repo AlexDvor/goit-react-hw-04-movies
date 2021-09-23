@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Container from './components/Container/Container.jsx';
 // pages
 import MovieList from './pages/MovieList';
+import Movie from './pages/Movie';
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MovieList></MovieList>
+          </Route>
+
+          <Route exact path="/movies">
+            <Movie></Movie>
           </Route>
         </Switch>
       </Container>
