@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container.jsx';
 // pages
-import MovieList from './pages/MovieList';
-import Movie from './pages/Movie';
+import HomePage from './pages/HomePage';
+import Movies from './pages/Movies/Movies';
 
 function App() {
   return (
@@ -13,11 +13,11 @@ function App() {
         <Header></Header>
         <Switch>
           <Route exact path="/">
-            <MovieList></MovieList>
+            <HomePage></HomePage>
           </Route>
 
           <Route exact path="/movies">
-            <Movie></Movie>
+            <Movies></Movies>
           </Route>
         </Switch>
       </Container>
