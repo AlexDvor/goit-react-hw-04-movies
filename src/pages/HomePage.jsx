@@ -1,4 +1,4 @@
-import fetchMovie from '../utils/fetchMovie';
+import { fetchMovie } from '../utils/fetchMovie';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 

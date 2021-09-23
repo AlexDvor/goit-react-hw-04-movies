@@ -1,18 +1,24 @@
-async function fetchMovie() {
-  const URL = `https://api.themoviedb.org/3/`;
-  const API_KEY = '93e18502a4f670f89316c5fc1b091bd6';
+const URL = `https://api.themoviedb.org/3`;
+const API_KEY = '93e18502a4f670f89316c5fc1b091bd6';
 
+export async function fetchMovie() {
   return await fetch(`${URL}/trending/movie/day?api_key=${API_KEY}`).then(response => {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`400 Мы не нашли такого фильми у нас сервере`));
+    return Promise.reject(new Error(Error.message));
   });
 }
 
-export default fetchMovie;
+export async function fetchMovieBySearch(queryValue) {
+  return await fetch(
+    `${URL}/search/movie?api_key=${API_KEY}&query=${queryValue}&language=en-US&page=1`,
+  ).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`400 Not Found`));
+  });
+}
 
-// GET / trending / movie / day;
-
-// const TRENDING = 'trending/movie/day';
-// const SEARCH_MOVIE = 'search/movie';
+// `${URL}/search/movie?api_key=${API_KEY}&query=${queryValue}&language=en-US&page=1`,
