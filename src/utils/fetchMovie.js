@@ -30,6 +30,15 @@ export async function fetchMovieByID(id) {
   });
 }
 
-// `${URL}/search/movie?api_key=${API_KEY}&query=${queryValue}&language=en-US&page=1`,
+export async function fetchMovieByCast(id) {
+  return await fetch(`${URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`).then(
+    response => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(new Error(`400 Not Found`));
+    },
+  );
+}
 
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
+// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US

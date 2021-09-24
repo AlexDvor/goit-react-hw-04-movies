@@ -21,7 +21,7 @@ function App() {
             <MoviesPage></MoviesPage>
           </Route>
 
-          <Route exact path="/movies/:movieId">
+          <Route path="/movies/:movieId">
             <MovieDetailsPage></MovieDetailsPage>
           </Route>
         </Switch>
