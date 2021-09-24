@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { fetchMovieByReviews } from '../../utils/fetchMovie';
-// import s from './Cast.module.css';
+import s from './Reviews.module.css';
 
 export default function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const { movieId } = useParams();
-  console.log(movieData);
+  // console.log(movieData);
 
   useEffect(() => {
     fetchMovieByReviews(movieId).then(res => setMovieData(res.results));
@@ -16,7 +16,7 @@ export default function Reviews() {
     <>
       {movieData.length > 0 ? (
         movieData.map(item => (
-          <li key={item.id}>
+          <li key={item.id} className={s.item}>
             <h4>{item.author}</h4>
             {item.author_details.avatar_path ? (
               <img src={item.author_details.avatar_path.slice(1)} alt={item.author} width="100px" />

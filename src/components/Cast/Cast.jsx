@@ -19,8 +19,16 @@ export default function Cast() {
     <ul className={s.wrapper}>
       {movieData &&
         movieData.map(item => (
-          <li key={item.id}>
-            <img src={`${URL}/${item.profile_path}`} alt={item.name} width="100px" />
+          <li key={item.id} className={s.item}>
+            {item.profile_path ? (
+              <img src={`${URL}/${item.profile_path}`} alt={item.name} width="100px" />
+            ) : (
+              <img
+                src="https://img.icons8.com/ios/100/000000/user-male-circle.png"
+                alt={item.name}
+                width="100px"
+              />
+            )}
             <h4> {item.name}</h4>
             <p>Character{item.character}</p>
           </li>

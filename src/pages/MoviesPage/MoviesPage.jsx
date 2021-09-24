@@ -1,6 +1,7 @@
 import s from './Movies.module.css';
 import { useState } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
+import { Link } from 'react-router-dom';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
@@ -21,7 +22,14 @@ export default function MoviesPage() {
         Search
       </button>
 
-      <ul>{movie && movie.map(item => <li key={item.id}>{item.title}</li>)}</ul>
+      <ul>
+        {movie &&
+          movie.map(item => (
+            <li key={item.id}>
+              <Link>{item.title}</Link>
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
