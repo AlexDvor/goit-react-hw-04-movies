@@ -41,4 +41,15 @@ export async function fetchMovieByCast(id) {
   );
 }
 
-// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+export async function fetchMovieByReviews(id) {
+  return await fetch(`${URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`).then(
+    response => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(new Error(`400 Not Found`));
+    },
+  );
+}
+
+// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1

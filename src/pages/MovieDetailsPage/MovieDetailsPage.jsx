@@ -6,6 +6,7 @@ import getGenres from '../../utils/getGenres';
 import Cast from '../../components/Cast/Cast';
 import s from './MovieDetailsPage.module.css';
 import { Route } from 'react-router';
+import Reviews from '../../components/Reviews/Reviews';
 
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState([]);
@@ -64,7 +65,9 @@ export default function MovieDetailsPage() {
             <Cast></Cast>
           </Route>
 
-          <Route path={`/movies/:movieId/reviews`}></Route>
+          <Route path={`/movies/:movieId/reviews`}>
+            <Reviews></Reviews>
+          </Route>
         </>
       )}
     </>
