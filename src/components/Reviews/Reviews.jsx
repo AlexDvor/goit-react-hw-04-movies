@@ -16,21 +16,27 @@ export default function Reviews() {
     <>
       {movieData.length > 0 ? (
         movieData.map(item => (
-          <li key={item.id} className={s.item}>
-            <h4>{item.author}</h4>
-            {item.author_details.avatar_path ? (
-              <img src={item.author_details.avatar_path.slice(1)} alt={item.author} width="100px" />
-            ) : (
-              <>
+          <ul className={s.wrapper}>
+            <li key={item.id} className={s.item}>
+              <h4>{item.author}</h4>
+              {item.author_details.avatar_path ? (
                 <img
-                  src="https://img.icons8.com/ios/100/000000/user-male-circle.png"
+                  src={item.author_details.avatar_path.slice(1)}
                   alt={item.author}
                   width="100px"
                 />
-              </>
-            )}
-            <p>{item.content}</p>
-          </li>
+              ) : (
+                <>
+                  <img
+                    src="https://img.icons8.com/ios/100/000000/user-male-circle.png"
+                    alt={item.author}
+                    width="100px"
+                  />
+                </>
+              )}
+              <p>{item.content}</p>
+            </li>
+          </ul>
         ))
       ) : (
         <p>We don't have any reviews for this movie</p>
