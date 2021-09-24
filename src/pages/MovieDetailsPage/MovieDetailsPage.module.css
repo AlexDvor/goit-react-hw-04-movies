@@ -1,0 +1,8 @@
+.wrapperContent {
+  display: flex;
+  margin-top: 40px;
+}
+
+.wrapperInfo {
+  margin-left: 40px;
+}
