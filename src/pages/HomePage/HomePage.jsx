@@ -15,21 +15,6 @@ export default function HomePage() {
     <>
       <h2>Trending Today</h2>
       <MovieCard movies={movies} location={location}></MovieCard>
-      {/* <ul>
-        {movies &&
-          movies.map(item => (
-            <li key={item.id}>
-              <Link
-                to={{
-                  pathname: `/movies/${item.id}`,
-                  state: { from: location },
-                }}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-      </ul> */}
     </>
   );
 }

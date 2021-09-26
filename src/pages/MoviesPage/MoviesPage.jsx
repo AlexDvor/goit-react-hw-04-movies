@@ -42,23 +42,6 @@ export default function MoviesPage() {
         Search
       </button>
       <MovieCard movies={movie} location={location}></MovieCard>
-      {/* <ul>
-        {movie &&
-          movie.map(item => (
-            <li key={item.id}>
-              <Link
-                to={{
-                  pathname: `${url}/${item.id}`,
-                  state: {
-                    from: location,
-                  },
-                }}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-      </ul> */}
     </div>
   );
 }
