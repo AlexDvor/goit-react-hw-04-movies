@@ -12,7 +12,7 @@ const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
 const CastPage = lazy(() => import('../CastPage/CastPage'));
 
 export default function MovieDetailsPage() {
-  const [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState(null);
   const { movieId } = useParams('');
   const { url } = useRouteMatch();
   const location = useLocation();
@@ -30,7 +30,7 @@ export default function MovieDetailsPage() {
     history.push(location?.state?.from ?? '/');
   };
 
-  const { title, poster_path, genres, release_date, overview, vote_average } = movieData;
+  // const { title, poster_path, genres, release_date, overview, vote_average } = movieData;
   const URL = 'https://image.tmdb.org/t/p/w500';
 
   return (
@@ -40,8 +40,8 @@ export default function MovieDetailsPage() {
           <Button text="Go Back" onClick={onClickBtn}></Button>
           <div className={s.wrapperContent}>
             <div>
-              {poster_path ? (
-                <img src={`${URL}/${poster_path}`} alt={title} width="200px" />
+              {movieData.poster_path ? (
+                <img src={`${URL}/${movieData.poster_path}`} alt={movieData.title} width="200px" />
               ) : (
                 <p>Not Found Image</p>
               )}
@@ -49,15 +49,15 @@ export default function MovieDetailsPage() {
 
             <div className={s.wrapperInfo}>
               <h2>
-                {title}({release_date && release_date.slice(0, 4)})
+                {movieData.title}({movieData.release_date && movieData.release_date.slice(0, 4)})
               </h2>
-              <p>User Score: {vote_average * 10}%</p>
+              <p>User Score: {movieData.vote_average * 10}%</p>
 
               <h3>Overview</h3>
-              <p>{overview}</p>
+              <p>{movieData.overview}</p>
 
               <h3>Genres</h3>
-              {genres && getGenres(genres)}
+              {movieData.genres && getGenres(movieData.genres)}
             </div>
           </div>
           <h4>Additional information</h4>
