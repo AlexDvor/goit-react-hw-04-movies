@@ -6,7 +6,6 @@ import s from './ReviewsPage.module.css';
 export default function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const { movieId } = useParams();
-  console.log(movieData);
 
   useEffect(() => {
     fetchMovieByReviews(movieId).then(res => setMovieData(res.results));

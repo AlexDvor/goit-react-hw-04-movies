@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   const [movies, setMovie] = useState([]);
-  // const { url } = useRouteMatch();
-  // console.log(url);
-  console.log(movies);
 
   useEffect(() => {
     fetchMovie().then(res => setMovie(res.results));
   }, []);
+
   return (
     <>
       <h2>Trending Today</h2>

@@ -1,8 +1,8 @@
 import s from './Movies.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { useParams, useRouteMatch } from 'react-router';
+import { useRouteMatch } from 'react-router';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
@@ -10,9 +10,6 @@ export default function MoviesPage() {
   const location = useLocation();
   const history = useHistory();
   const { url } = useRouteMatch();
-
-  // console.log('location', location);
-  // console.log('history', history);
 
   const handleQueryValue = e => {
     setQuery(e.target.value);

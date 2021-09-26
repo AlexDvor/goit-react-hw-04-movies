@@ -1,12 +1,12 @@
 import { useParams, useRouteMatch } from 'react-router';
-import { fetchMovieByID } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import getGenres from '../../utils/getGenres';
-import CastPage from '../CastPage/CastPage';
-import s from './MovieDetailsPage.module.css';
 import { Route } from 'react-router';
+import { fetchMovieByID } from '../../utils/fetchMovie';
+import getGenres from '../../utils/getGenres';
+import s from './MovieDetailsPage.module.css';
 import ReviewsPage from '../ReviewsPage/ReviewsPage';
+import CastPage from '../CastPage/CastPage';
 
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState([]);
@@ -18,8 +18,6 @@ export default function MovieDetailsPage() {
       fetchMovieByID(Number(movieId)).then(setMovieData);
     }
   }, [movieId]);
-
-  // console.log(movieData);
 
   const { title, poster_path, genres, release_date, overview, vote_average } = movieData;
   const URL = 'https://image.tmdb.org/t/p/w500';
