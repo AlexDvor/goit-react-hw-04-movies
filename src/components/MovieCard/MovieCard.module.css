@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.item {
+  width: 200px;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title {
+  margin-top: 10px;
+}

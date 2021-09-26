@@ -11,6 +11,7 @@ export default function HomePage() {
     fetchMovie().then(res => setMovie(res.results));
   }, []);
 
+  console.log(movies);
   return (
     <>
       <h2>Trending Today</h2>

@@ -30,7 +30,6 @@ export default function MovieDetailsPage() {
     history.push(location?.state?.from ?? '/');
   };
 
-  // const { title, poster_path, genres, release_date, overview, vote_average } = movieData;
   const URL = 'https://image.tmdb.org/t/p/w500';
 
   return (
