@@ -1,18 +1,31 @@
 import s from './Movies.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useRouteMatch } from 'react-router';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState([]);
+  const location = useLocation();
+  const history = useHistory();
+  const { url } = useRouteMatch();
+
+  // console.log('location', location);
+  // console.log('history', history);
 
   const handleQueryValue = e => {
     setQuery(e.target.value);
   };
 
   const submitBtn = () => {
-    fetchMovieBySearch(query).then(res => setMovie(res.results));
+    if (query) {
+      fetchMovieBySearch(query).then(res => setMovie(res.results));
+      history.push({
+        ...location,
+        search: `query=${query}`,
+      });
+    }
   };
 
   return (
@@ -26,7 +39,7 @@ export default function MoviesPage() {
         {movie &&
           movie.map(item => (
             <li key={item.id}>
-              <Link>{item.title}</Link>
+              <Link to={`${url}/${item.id}`}>{item.title}</Link>
             </li>
           ))}
       </ul>
