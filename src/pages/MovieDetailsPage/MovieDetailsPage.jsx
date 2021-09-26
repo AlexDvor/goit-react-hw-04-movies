@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { useParams, useRouteMatch } from 'react-router';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -5,8 +6,11 @@ import { Route } from 'react-router';
 import { fetchMovieByID } from '../../utils/fetchMovie';
 import getGenres from '../../utils/getGenres';
 import s from './MovieDetailsPage.module.css';
-import ReviewsPage from '../ReviewsPage/ReviewsPage';
-import CastPage from '../CastPage/CastPage';
+// import ReviewsPage from '../ReviewsPage/ReviewsPage';
+// import CastPage from '../CastPage/CastPage';
+
+const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
+const CastPage = lazy(() => import('../CastPage/CastPage'));
 
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState([]);
@@ -59,13 +63,15 @@ export default function MovieDetailsPage() {
             </li>
           </ul>
 
-          <Route path={`/movies/:movieId/cast`}>
-            <CastPage></CastPage>
-          </Route>
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Route path={`/movies/:movieId/cast`}>
+              <CastPage></CastPage>
+            </Route>
 
-          <Route path={`/movies/:movieId/reviews`}>
-            <ReviewsPage></ReviewsPage>
-          </Route>
+            <Route path={`/movies/:movieId/reviews`}>
+              <ReviewsPage></ReviewsPage>
+            </Route>
+          </Suspense>
         </>
       )}
     </>
