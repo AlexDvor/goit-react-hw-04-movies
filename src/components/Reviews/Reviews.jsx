@@ -6,7 +6,7 @@ import s from './Reviews.module.css';
 export default function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const { movieId } = useParams();
-  // console.log(movieData);
+  console.log(movieData);
 
   useEffect(() => {
     fetchMovieByReviews(movieId).then(res => setMovieData(res.results));
@@ -14,9 +14,9 @@ export default function Reviews() {
 
   return (
     <>
-      {movieData.length > 0 ? (
-        movieData.map(item => (
-          <ul className={s.wrapper}>
+      <ul className={s.wrapper}>
+        {movieData.length > 0 ? (
+          movieData.map(item => (
             <li key={item.id} className={s.item}>
               <h4>{item.author}</h4>
               {item.author_details.avatar_path ? (
@@ -36,11 +36,11 @@ export default function Reviews() {
               )}
               <p>{item.content}</p>
             </li>
-          </ul>
-        ))
-      ) : (
-        <p>We don't have any reviews for this movie</p>
-      )}
+          ))
+        ) : (
+          <p>We don't have any reviews for this movie</p>
+        )}
+      </ul>
     </>
   );
 }
