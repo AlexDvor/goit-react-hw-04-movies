@@ -1,5 +1,5 @@
 import s from './Movies.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useRouteMatch } from 'react-router';
@@ -7,9 +7,12 @@ import { useRouteMatch } from 'react-router';
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState([]);
+
   const location = useLocation();
   const history = useHistory();
   const { url } = useRouteMatch();
+  const searchWord = new URLSearchParams(location.search).get('query');
+  console.log(searchWord);
 
   const handleQueryValue = e => {
     setQuery(e.target.value);
@@ -25,6 +28,13 @@ export default function MoviesPage() {
     }
   };
 
+  useEffect(() => {
+    if (!searchWord) {
+      return;
+    }
+    fetchMovieBySearch(searchWord).then(res => setMovie(res.results));
+  }, [searchWord]);
+
   return (
     <div className={s.wrapper}>
       <input type="text" name="searchQuery" autoComplete="off" onChange={handleQueryValue} />
@@ -36,7 +46,16 @@ export default function MoviesPage() {
         {movie &&
           movie.map(item => (
             <li key={item.id}>
-              <Link to={`${url}/${item.id}`}>{item.title}</Link>
+              <Link
+                to={{
+                  pathname: `${url}/${item.id}`,
+                  state: {
+                    from: location,
+                  },
+                }}
+              >
+                {item.title}
+              </Link>
             </li>
           ))}
       </ul>

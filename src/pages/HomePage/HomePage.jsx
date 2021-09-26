@@ -1,9 +1,10 @@
 import { fetchMovie } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 export default function HomePage() {
   const [movies, setMovie] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     fetchMovie().then(res => setMovie(res.results));
@@ -16,7 +17,14 @@ export default function HomePage() {
         {movies &&
           movies.map(item => (
             <li key={item.id}>
-              <Link to={`/movies/${item.id}`}>{item.title}</Link>
+              <Link
+                to={{
+                  pathname: `/movies/${item.id}`,
+                  state: { from: location },
+                }}
+              >
+                {item.title}
+              </Link>
             </li>
           ))}
       </ul>
