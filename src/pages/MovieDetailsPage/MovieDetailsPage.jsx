@@ -6,9 +6,6 @@ import { Route } from 'react-router';
 import { fetchMovieByID } from '../../utils/fetchMovie';
 import getGenres from '../../utils/getGenres';
 import s from './MovieDetailsPage.module.css';
-// import ReviewsPage from '../ReviewsPage/ReviewsPage';
-// import CastPage from '../CastPage/CastPage';
-
 const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
 const CastPage = lazy(() => import('../CastPage/CastPage'));
 

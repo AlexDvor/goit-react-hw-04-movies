@@ -4,10 +4,6 @@ import { Route, Switch } from 'react-router';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container.jsx';
 // pages
-// import HomePage from './pages/HomePage/HomePage.jsx';
-// import MoviesPage from './pages/MoviesPage/MoviesPage';
-// import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
-
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage.jsx'));
 const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage/MovieDetailsPage.jsx'));
