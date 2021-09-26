@@ -3,10 +3,10 @@ import { fetchMovieByID } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import getGenres from '../../utils/getGenres';
-import Cast from '../../components/Cast/Cast';
+import CastPage from '../CastPage/CastPage';
 import s from './MovieDetailsPage.module.css';
 import { Route } from 'react-router';
-import Reviews from '../../components/Reviews/Reviews';
+import ReviewsPage from '../ReviewsPage/ReviewsPage';
 
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState([]);
@@ -62,11 +62,11 @@ export default function MovieDetailsPage() {
           </ul>
 
           <Route path={`/movies/:movieId/cast`}>
-            <Cast></Cast>
+            <CastPage></CastPage>
           </Route>
 
           <Route path={`/movies/:movieId/reviews`}>
-            <Reviews></Reviews>
+            <ReviewsPage></ReviewsPage>
           </Route>
         </>
       )}

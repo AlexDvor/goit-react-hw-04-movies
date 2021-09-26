@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { fetchMovieByReviews } from '../../utils/fetchMovie';
-import s from './Reviews.module.css';
+import s from './ReviewsPage.module.css';
 
 export default function Reviews() {
   const [movieData, setMovieData] = useState([]);

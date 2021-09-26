@@ -1,7 +1,7 @@
 import { fetchMovieByCast } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import s from './Cast.module.css';
+import s from './CastPage.module.css';
 
 export default function Cast() {
   const [movieData, setMovieData] = useState([]);
