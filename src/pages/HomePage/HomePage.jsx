@@ -1,6 +1,7 @@
 import { fetchMovie } from '../../utils/fetchMovie';
 import { useState, useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 export default function HomePage() {
   const [movies, setMovie] = useState([]);
@@ -13,7 +14,8 @@ export default function HomePage() {
   return (
     <>
       <h2>Trending Today</h2>
-      <ul>
+      <MovieCard movies={movies} location={location}></MovieCard>
+      {/* <ul>
         {movies &&
           movies.map(item => (
             <li key={item.id}>
@@ -27,7 +29,7 @@ export default function HomePage() {
               </Link>
             </li>
           ))}
-      </ul>
+      </ul> */}
     </>
   );
 }

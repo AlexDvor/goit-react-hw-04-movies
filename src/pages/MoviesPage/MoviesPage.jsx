@@ -1,8 +1,9 @@
 import s from './Movies.module.css';
 import { useState, useEffect } from 'react';
 import { fetchMovieBySearch } from '../../utils/fetchMovie';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import { useRouteMatch } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
+
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
@@ -10,9 +11,8 @@ export default function MoviesPage() {
 
   const location = useLocation();
   const history = useHistory();
-  const { url } = useRouteMatch();
+
   const searchWord = new URLSearchParams(location.search).get('query');
-  console.log(searchWord);
 
   const handleQueryValue = e => {
     setQuery(e.target.value);
@@ -41,8 +41,8 @@ export default function MoviesPage() {
       <button type="submit" onClick={submitBtn}>
         Search
       </button>
-
-      <ul>
+      <MovieCard movies={movie} location={location}></MovieCard>
+      {/* <ul>
         {movie &&
           movie.map(item => (
             <li key={item.id}>
@@ -58,7 +58,7 @@ export default function MoviesPage() {
               </Link>
             </li>
           ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
