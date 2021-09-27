@@ -33,11 +33,18 @@ export default function MoviesPage() {
       return;
     }
     fetchMovieBySearch(searchWord).then(res => setMovie(res.results));
+    setQuery(searchWord);
   }, [searchWord]);
 
   return (
     <div className={s.wrapper}>
-      <input type="text" name="searchQuery" autoComplete="off" onChange={handleQueryValue} />
+      <input
+        type="text"
+        name="searchQuery"
+        autoComplete="off"
+        onChange={handleQueryValue}
+        value={query}
+      />
       <button type="submit" onClick={submitBtn}>
         Search
       </button>
