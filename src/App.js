@@ -4,9 +4,17 @@ import { Route, Switch } from 'react-router';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container.jsx';
 // pages
-const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
-const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage.jsx'));
-const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage/MovieDetailsPage.jsx'));
+const HomePage = lazy(() =>
+  import('./pages/HomePage/HomePage.jsx' /* webpackChunkName: 'HomePage' */),
+);
+const MoviesPage = lazy(() =>
+  import('./pages/MoviesPage/MoviesPage.jsx' /* webpackChunkName: 'MoviesPage' */),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    './pages/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChunkName: 'MovieDetailsPage' */
+  ),
+);
 
 function App() {
   return (

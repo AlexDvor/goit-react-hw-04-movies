@@ -1,25 +1,41 @@
 import { Link } from 'react-router-dom';
 import s from './MovieCard.module.css';
+import PropTypes from 'prop-types';
 
 export default function MovieCard({ movies, location }) {
   const URL = 'https://image.tmdb.org/t/p/w500';
   return (
     <ul className={s.wrapper}>
       {movies &&
-        movies.map(item => (
-          <li key={item.id} className={s.item}>
+        movies.map(({ id, poster_path, title }) => (
+          <li key={id} className={s.item}>
             <Link
               className={s.link}
               to={{
-                pathname: `/movies/${item.id}`,
+                pathname: `/movies/${id}`,
                 state: { from: location },
               }}
             >
-              <img src={`${URL}/${item.poster_path}`} alt={item.title} width="200px" />
-              <span className={s.title}> {item.title}</span>
+              <img src={`${URL}/${poster_path}`} alt={title} width="200px" />
+              <span className={s.title}> {title}</span>
             </Link>
           </li>
         ))}
     </ul>
   );
 }
+
+MovieCard.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+// handleChange: PropTypes.func,
+// getData: PropTypes.func,
+// handleSubmit: PropTypes.func,
+// resetForm: PropTypes.func,
