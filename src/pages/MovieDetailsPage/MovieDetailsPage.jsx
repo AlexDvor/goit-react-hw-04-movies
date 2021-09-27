@@ -8,8 +8,10 @@ import getGenres from '../../utils/getGenres';
 import s from './MovieDetailsPage.module.css';
 import Button from '../../components/Button/Button';
 
-const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
-const CastPage = lazy(() => import('../CastPage/CastPage'));
+const ReviewsPage = lazy(() =>
+  import('../ReviewsPage/ReviewsPage' /* webpackChunkName: 'ReviewsPage' */),
+);
+const CastPage = lazy(() => import('../CastPage/CastPage' /* webpackChunkName: 'CastPage' */));
 
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState(null);
@@ -17,8 +19,6 @@ export default function MovieDetailsPage() {
   const { url } = useRouteMatch();
   const location = useLocation();
   const history = useHistory();
-  console.log('location', location);
-  console.log('history', history);
 
   useEffect(() => {
     if (movieId) {
