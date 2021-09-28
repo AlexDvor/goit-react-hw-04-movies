@@ -16,7 +16,7 @@ export default function MovieCard({ movies, location }) {
                 state: { from: location },
               }}
             >
-              <img src={`${URL}/${poster_path}`} alt={title} width="200px" />
+              {poster_path && <img src={`${URL}/${poster_path}`} alt={title} width="200px" />}
               <span className={s.title}> {title}</span>
             </Link>
           </li>
@@ -28,9 +28,9 @@ export default function MovieCard({ movies, location }) {
 MovieCard.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      poster_path: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
+      id: PropTypes.number,
+      poster_path: PropTypes.string,
+      title: PropTypes.string,
     }),
   ),
 };
