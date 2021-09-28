@@ -34,8 +34,3 @@ MovieCard.propTypes = {
     }),
   ),
 };
-
-// handleChange: PropTypes.func,
-// getData: PropTypes.func,
-// handleSubmit: PropTypes.func,
-// resetForm: PropTypes.func,
