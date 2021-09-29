@@ -18,7 +18,8 @@ export default function MoviesPage() {
     setQuery(e.target.value);
   };
 
-  const submitBtn = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     if (query) {
       fetchMovieBySearch(query).then(res => setMovie(res.results));
       history.push({
@@ -37,18 +38,12 @@ export default function MoviesPage() {
   }, [searchWord]);
 
   return (
-    <div className={s.wrapper}>
-      <input
-        type="text"
-        name="searchQuery"
-        autoComplete="off"
-        onChange={handleQueryValue}
-        value={query}
-      />
-      <button type="submit" onClick={submitBtn}>
-        Search
-      </button>
+    <>
+      <form onSubmit={onSubmit} className={s.wrapper}>
+        <input type="text" value={query} name="searchQuery" onChange={handleQueryValue} />
+        <button type="submit">Search</button>
+      </form>
       <MovieCard movies={movie} location={location}></MovieCard>
-    </div>
+    </>
   );
 }
