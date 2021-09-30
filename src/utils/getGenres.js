@@ -3,3 +3,4 @@ export default function getGenres(genres) {
   const result = [...genresData].join(', ');
   return result;
 }
+console.log(';;;;;;');
